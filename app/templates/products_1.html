@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar with Cart Button -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('show_products') }}">My Shop</a>
+            <div class="d-flex">
+                <a href="{{ url_for('view_cart') }}" class="btn btn-outline-primary">
+                    🛒 View Cart
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h1 class="mb-4 text-center">All Products</h1>
+
+        <!-- Search Bar -->
+        <form method="GET" action="{{ url_for('show_products') }}" class="mb-5">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="نام محصول را وارد کنید..." required>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+
+        <!-- Product Cards -->
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="container text-center mt-4">
+                        <img src="{{ product.img_src }}" class="card-img-top" style="max-width: 200px;" alt="{{ product.name }}">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text text-muted">${{ product.price }}</p>
+                        <p class="card-text">{{ product.description }}</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn btn-outline-dark">View Product</a>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

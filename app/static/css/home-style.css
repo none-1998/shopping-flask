@@ -1,0 +1,20 @@
+/* Background with a soft blue gradient or sky image */
+.home-body {
+    background: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+/* Optional overlay for better readability */
+.home-body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 51, 102, 0.4);
+    z-index: -1;
+}

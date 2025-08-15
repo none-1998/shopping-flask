@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}خانه | نیک‌پی{% endblock %}
+
+{% block head_extra %}
+<link href="{{ url_for('static', filename='css/home-style.css') }}" rel="stylesheet">
+<style>
+    body {
+        transition: opacity 0.5s ease;
+    }
+    body.fade-out {
+        opacity: 0;
+    }
+</style>
+{% endblock %}
+
+{% block body_class %}home-body{% endblock %}
+
+{% block content %}
+<div class="text-center text-white d-flex flex-column justify-content-center align-items-center vh-100">
+    <h1 class="display-3 fw-bold">!به نیک پی خوش اومدی</h1>
+    <p class="lead">Discover amazing products tailored just for you.</p>
+    <a href="{{ url_for('show_products') }}" class="btn btn-light btn-lg mt-4">بازدید محصولات</a>
+    <a href="#" id="login-btn" class="btn btn-light btn-lg mt-4">ورود به حساب کاربری</a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.getElementById("login-btn").addEventListener("click", function (e) {
+        e.preventDefault();
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+            window.location.href = "{{ url_for('login') }}";
+        }, 500);
+    });
+</script>
+{% endblock %}
