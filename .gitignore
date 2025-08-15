@@ -2,6 +2,7 @@
 venv/
 lib/
 Lib/
+Scripts/
 Include/
 bin/
 __pycache__/
