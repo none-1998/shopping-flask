@@ -1,0 +1,15 @@
+# نادیده گرفتن محیط مجازی
+venv/
+lib/
+Lib/
+Include/
+Scripts/
+bin/
+__pycache__/
+
+# فایل‌های موقتی
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.sqlite3
