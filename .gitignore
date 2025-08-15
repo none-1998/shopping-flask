@@ -3,7 +3,6 @@ venv/
 lib/
 Lib/
 Include/
-Scripts/
 bin/
 __pycache__/
 
